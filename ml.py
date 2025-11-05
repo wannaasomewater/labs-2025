@@ -43,14 +43,14 @@ class NeuroNetwork:
         return self.selected_layer
 
     def train(self, dataset, iters=1000):
-        print(f'\nTRAINING STARTED({iters} iterations)...')
+        print(f'\nНАЧАЛО ОБУЧЕНИЯ({iters} ИТЕРАЦИЙ)...')
         start_time = time.time()
         for i in range(iters):
             self.train_once(dataset)
-        print(f'\nTRAINING COMPLETED!\n')
+        print(f'\nОБУЧЕНИЕ ЗАВЕРШЕНО!\n')
         end_time = time.time()
         execution_time = end_time - start_time
-        print(f"TRAINING TIME: {execution_time:.2f} SECONDS")
+        print(f"ВРЕМЯ ОБУЧЕНИЯ: {execution_time:.2f} СЕКУНД")
 
     def train_once(self, dataset):
 
@@ -75,7 +75,7 @@ class NeuroNetwork:
         return out_data
 
     def test(self, data, op_name):
-        print('\nTESTING DATA:')
+        print('\nПРОВЕРКА НА ДАТАСЕТЕ:')
         for case in data:
             self.set_input_data(case)
             res = self.get_prediction()
@@ -161,7 +161,7 @@ def main():
     new_nn = NeuroNetwork(2, 1)
     dataset_or = [[[0, 0], 0], [[0, 1], 1], [[1, 0], 1], [[1, 1], 1]]
 
-    print('\nEnter the iterations:')
+    print('\nВведите количество итераций:')
     iterations = int(input())
 
     new_nn.train(dataset_or, iterations)
