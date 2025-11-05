@@ -1,5 +1,6 @@
 from math import ceil, exp
 from random import randint
+import time
 
 class NeuroNetwork:
     @staticmethod
@@ -43,9 +44,13 @@ class NeuroNetwork:
 
     def train(self, dataset, iters=1000):
         print(f'\nTRAINING STARTED({iters} iterations)...')
+        start_time = time.time()
         for i in range(iters):
             self.train_once(dataset)
         print(f'\nTRAINING COMPLETED!\n')
+        end_time = time.time()
+        execution_time = end_time - start_time
+        print(f"TRAINING TIME: {execution_time:.2f} SECONDS")
 
     def train_once(self, dataset):
 
@@ -87,6 +92,15 @@ class Layer:
                 self.neurons[i].set_value(val_list[i])
 
 class Neuron:
+    # В конструктор нейрона мы можем передать два параметра: слой,
+    # на котором этот нейрон находится и, если это не входной слой нейросети,
+    # ссылку на предыдущий слой. В конструкторе, для каждого нейрона предыдущего слоя
+    # мы создадим вход (массив inputs), который свяжет нейроны и будет иметь случайный вес,
+    # и запишем все входы в массив inputs. Если же это входной слой сети, то массив inputs
+    # будет состоять из единственного числового значения, того, которое мы передадим на вход.
+    # inputs - массив входов!
+    # конструктор создает вход, кот. свяжет нейроны и имеет случ вес
+    # все входы запис. в масс. inputs
 
     @staticmethod
     def my_round(num: float) -> float:
@@ -102,8 +116,14 @@ class Neuron:
         self._layer = layer
         self.inputs = [Input(prev_neuron, randint(0, 10) / 10) for prev_neuron in
                    previous_layer.neurons] if previous_layer else []  # Генератор списка + однострочное условие
-    # random.randint(0, 10) / 10   случайное число от 0.0 до 1.0
         self.get_value()
+        # последовательно создавать входы для каждого нейрона из списка neurons и назначать им рандомный вес 0..1
+        # new Layer(layerSize, this.layers[this.layers.length - 1], this)
+        # this - экземпляр NN
+        # layerSize - количество нейронов в слое - его размерность
+        # this.layers[this.layers.length - 1] = previous_layer : Layer
+        # my_listcomp = [chr(i) for i in range(97, 123)]
+        # if previous_layer != None
 
     def get_value(self):
         network = self._layer.network
@@ -137,8 +157,16 @@ class Input:
     def __str__(self):
         return str(Neuron.my_round(self.weight))
 
-new_nn = NeuroNetwork(2, 1)
-dataset_or = [[[0, 0], 0], [[0, 1], 1], [[1, 0], 1], [[1, 1], 1]]
-new_nn.train(dataset_or, 100000)
-test_data = [[0, 0], [0, 1], [1, 0], [1, 1]]
-new_nn.test(test_data, 'OR')
+def main():
+    new_nn = NeuroNetwork(2, 1)
+    dataset_or = [[[0, 0], 0], [[0, 1], 1], [[1, 0], 1], [[1, 1], 1]]
+
+    print('\nEnter the iterations:')
+    iterations = int(input())
+
+    new_nn.train(dataset_or, iterations)
+    test_data = [[0, 0], [0, 1], [1, 0], [1, 1]]
+    new_nn.test(test_data, 'OR')
+
+if __name__ == '__main__':
+    main()
