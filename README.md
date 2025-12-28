@@ -16,10 +16,13 @@
 
 
 ### РК:
+| № | Название РК | 
+|---|------------------|
 | 1 | [РК1](https://github.com/wannaasomewater/labs-2025/tree/rk1) |
-| 2 | [РК1](https://github.com/wannaasomewater/labs-2025/tree/rk2) |
+| 2 | [РК2](https://github.com/wannaasomewater/labs-2025/tree/rk2) |
+
 ### ДЗ:
-| 1 | [РК1](https://github.com/wannaasomewater/labs-2025/tree/homework) |
+| 1 | [ДЗ](https://github.com/wannaasomewater/labs-2025/tree/homework) |
 
 ## 🛠 Технологии и инструменты
 
