@@ -22,8 +22,9 @@
 | 2 | [РК2](https://github.com/wannaasomewater/labs-2025/tree/rk2) |
 
 ### ДЗ:
-| 1 | [ДЗ](https://github.com/wannaasomewater/labs-2025/tree/homework) |
-
+| № | ДЗ | 
+|---|------------------|
+| 1 | [ДЗ1](https://github.com/wannaasomewater/labs-2025/tree/homework) |
 ## 🛠 Технологии и инструменты
 
 - **Язык программирования:** Python
