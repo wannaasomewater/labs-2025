@@ -17,9 +17,9 @@
 
 ### РК:
 | 1 | [РК1](https://github.com/wannaasomewater/labs-2025/tree/rk1) |
-
+| 2 | [РК1](https://github.com/wannaasomewater/labs-2025/tree/rk2) |
 ### ДЗ:
-| 1 | 
+| 1 | [РК1](https://github.com/wannaasomewater/labs-2025/tree/homework) |
 
 ## 🛠 Технологии и инструменты
 
